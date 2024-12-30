@@ -29,7 +29,7 @@ export default function Orders() {
   ];
 
   return (
-    <div className="w-[100vw] lg:mr-20">
+    <div className="w-[75vw] lg:mr- mx-auto">
       <div className="pt-12">
         <div className="overflow-x-auto">
           <table className="mx-auto border border-gray-300 ">
@@ -42,6 +42,9 @@ export default function Orders() {
                   Customer Name
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                  UserEmail
+                </th>
+                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
                   Service
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
@@ -51,7 +54,13 @@ export default function Orders() {
                   Amount
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  Status
+                  Location
+                </th>
+                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                  Latitude
+                </th>
+                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                  Longitude
                 </th>
               </tr>
             </thead>
@@ -61,20 +70,28 @@ export default function Orders() {
                   key={index}
                   className="border-t border-gray-200 cursor-pointer hover:bg-gray-50"
                 >
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-sm">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.id}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-sm">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.customerName}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-sm">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.Service}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-sm">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.date}
                   </td>
-
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-sm">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                    {order.amount}
+                  </td>
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                    {order.amount}
+                  </td>
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                    {order.amount}
+                  </td>
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.amount}
                   </td>
                   <td

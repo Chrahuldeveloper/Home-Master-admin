@@ -9,9 +9,10 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const Login = (e) => {
-    if (user.Name === "" && user.Password === "") {
-      navigate("/admin-panel/home");
+  const Login = () => {
+    if (user.Name === "admin" && user.Password === "12345") {
+      alert("Login Successful");
+      navigate("/home");
     } else {
       alert("Wrong Password. Try Again!!");
     }
@@ -19,7 +20,7 @@ export default function Login() {
 
   return (
     <>
-      <body className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+      <div className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
         <div className="bg-[#0b2a97] p-8 rounded-lg w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[30vw]">
           <div className="text-center space-y-3.5">
             <img
@@ -27,7 +28,9 @@ export default function Login() {
               className="object-cover w-20 h-20 mx-auto rounded-full"
               alt=""
             />
-            <h1 className="font-semibold text-white md:text-lg">Sign in your account</h1>
+            <h1 className="font-semibold text-white md:text-lg">
+              Sign in to your account
+            </h1>
           </div>
           <div className="flex flex-col justify-center gap-10 mt-5 text-white">
             <div className="flex flex-col space-y-2">
@@ -55,12 +58,15 @@ export default function Login() {
                 className="p-3 text-black rounded-lg outline-none"
               />
             </div>
-            <button className="bg-white py-3 rounded-lg text-[#0b2a97] font-semibold text-sm">
+            <button
+              className="bg-white py-3 rounded-lg text-[#0b2a97] font-semibold text-sm"
+              onClick={Login}
+            >
               LOGIN
             </button>
           </div>
         </div>
-      </body>
+      </div>
     </>
   );
 }

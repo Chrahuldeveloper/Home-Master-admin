@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "../components/SideBar";
 import Orders from "../components/Orders";
+import Edit from "../components/Edit";
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
 
       <div className="flex">
         <SideBar />
-        <Orders />
+        {/* <Orders /> */}
+        <Edit />
       </div>
     </>
   );
