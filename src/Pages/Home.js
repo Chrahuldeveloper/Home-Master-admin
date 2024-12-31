@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "../components/SideBar";
 import Orders from "../components/Orders";
 import Edit from "../components/Edit";
+import Enquire from "../components/Enquire";
 
 export default function Home() {
+  const [section, setsection] = useState(false);
+
   return (
     <>
       <div className="border-b-[1px] p-1 border-gray-300">
@@ -16,12 +19,19 @@ export default function Home() {
           <h1 className="text-lg ">HomeMaster</h1>
         </div>
       </div>
-
       <div className="flex">
-        <SideBar />
-        {/* <Orders /> */}
-        <Edit />
+        <SideBar setsection={setsection} />
+        {section === "Enquires" ? (
+          <Enquire />
+        ) : section === "Orders" ? (
+          <Orders />
+        ) : section === "Edit" ? (
+          <Edit />
+        ) : (
+          <Enquire />
+        )}
       </div>
+      ;
     </>
   );
 }
