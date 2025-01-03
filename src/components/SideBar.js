@@ -1,5 +1,6 @@
 import React from "react";
 import { CiHome } from "react-icons/ci";
+import { MdShoppingCartCheckout } from "react-icons/md";
 
 export default function SideBar({ setsection }) {
   return (
@@ -12,7 +13,7 @@ export default function SideBar({ setsection }) {
               setsection("Orders");
             }}
           >
-            <CiHome size={25} />
+            <MdShoppingCartCheckout size={25} />
             <h1>Orders</h1>
           </li>
           <li
