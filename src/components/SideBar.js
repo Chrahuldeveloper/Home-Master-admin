@@ -1,6 +1,8 @@
 import React from "react";
-import { CiHome } from "react-icons/ci";
 import { MdShoppingCartCheckout } from "react-icons/md";
+import { MdCall } from "react-icons/md";
+import { BiEditAlt } from "react-icons/bi";
+import { MdLogout } from "react-icons/md";
 
 export default function SideBar({ setsection }) {
   return (
@@ -14,7 +16,7 @@ export default function SideBar({ setsection }) {
             }}
           >
             <MdShoppingCartCheckout size={25} />
-            <h1>Orders</h1>
+            <h1 className="font-semibold">Orders</h1>
           </li>
           <li
             className="flex items-center space-x-5 text-sm cursor-pointer"
@@ -22,8 +24,8 @@ export default function SideBar({ setsection }) {
               setsection("Enquires");
             }}
           >
-            <CiHome size={25} />
-            <h1>Enquires</h1>
+            <MdCall size={25} />
+            <h1 className="font-semibold">Enquires</h1>
           </li>
           <li
             className="flex items-center space-x-5 text-sm cursor-pointer"
@@ -31,12 +33,12 @@ export default function SideBar({ setsection }) {
               setsection("Edit");
             }}
           >
-            <CiHome size={25} />
-            <h1>Edit Details</h1>
+            <BiEditAlt size={25} />
+            <h1 className="font-semibold">Edit Details</h1>
           </li>
           <li className="flex items-center space-x-5 text-sm cursor-pointer">
-            <CiHome size={25} />
-            <h1>Logout</h1>
+            <MdLogout size={25} />
+            <h1 className="font-semibold">Logout</h1>
           </li>
         </ul>
       </aside>
