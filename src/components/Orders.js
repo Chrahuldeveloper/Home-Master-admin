@@ -1,48 +1,43 @@
-import React from "react";
-
+import React, { useEffect, useMemo, useState } from "react";
+import AllOrders from "../utlis/Orders";
 export default function Orders() {
-  const orders = [
-    {
-      id: "#10231",
-      customerName: "John Doe",
-      date: "2024-12-26",
-      status: "Completed",
-      amount: "$120.00",
-      Service: "Painting",
-    },
-    {
-      id: "#10232",
-      customerName: "Jane Smith",
-      date: "2024-12-25",
-      status: "Pending",
-      amount: "$95.00",
-      Service: "Painting",
-    },
-    {
-      id: "#10233",
-      customerName: "Alice Johnson",
-      date: "2024-12-24",
-      status: "Shipped",
-      amount: "$75.50",
-      Service: "Painting",
-    },
-  ];
+  const [data, setData] = useState([]);
+
+  const allorders = useMemo(() => new AllOrders(), []);
+
+  useEffect(() => {
+    const fetchingUsers = async () => {
+      try {
+        const fetchedData = await allorders.fetchUsers();
+        setData(
+          fetchedData.flat().map((item, index) => ({
+            id: index + 1,
+            ...item,
+          }))
+        );
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    };
+
+    fetchingUsers();
+  }, [allorders]);
 
   return (
-    <div className="w-[75vw] mx-auto">
+    <div className="w-[95vw] mx-auto">
       <div className="pt-12">
         <div className="overflow-x-auto">
           <table className="mx-auto border border-gray-300 ">
             <thead className="bg-gray-100 border-b border-gray-300">
               <tr>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  Order ID
+                {/* <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                  Name
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  Customer Name
-                </th>
+                  Phone
+                </th> */}
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  UserEmail
+                  Email
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
                   Service
@@ -65,36 +60,39 @@ export default function Orders() {
               </tr>
             </thead>
             <tbody className="border-b border-gray-300">
-              {orders.map((order, index) => (
+              {data.map((order, index) => (
                 <tr
                   key={index}
                   className="border-t border-gray-200 cursor-pointer hover:bg-gray-50"
                 >
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.id}
-                  </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  {/* <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.customerName}
+                  </td> */}
+                  {/* <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                    {order.phone}
+                  </td> */}
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                    {order.UserEmail}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.Service}
+                    {order.serviceName}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.date}
+                    {order.timestamp}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.amount}
+                    {order.price}
+                  </td>
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px] w-80">
+                    {order.UserAddress}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.amount}
+                    {order.UserLat}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.amount}
+                    {order.UserLong}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.amount}
-                  </td>
-                  <td
+                  {/* <td
                     className={`px-10 py-5 text-xs font-semibold lg:text-sm ${
                       order.status === "Pending"
                         ? "text-red-500"
@@ -102,7 +100,7 @@ export default function Orders() {
                     }`}
                   >
                     {order.status}
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

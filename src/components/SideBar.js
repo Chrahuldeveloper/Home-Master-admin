@@ -3,12 +3,23 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 import { MdCall } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import { MdLogout } from "react-icons/md";
+import { RxCross2 } from "react-icons/rx";
 
-export default function SideBar({ setsection }) {
+export default function SideBar({ setsection, settoggle }) {
   return (
-    <>
-      <aside className="border-[1px] w-[13vw] border-gray-300  h-screen hidden md:block ">
-        <ul className="px-10 space-y-12 pt-11">
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md">
+      <aside className="fixed top-0 left-0 w-[15vw] h-screen border-r-[1px] border-gray-300 bg-white">
+        <div className="flex justify-end px-5 pt-5">
+          <RxCross2
+            size={23}
+            color="black"
+            cursor={"pointer"}
+            onClick={() => {
+              settoggle(false);
+            }}
+          />
+        </div>
+        <ul className="px-10 pt-8 space-y-12">
           <li
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
@@ -42,6 +53,6 @@ export default function SideBar({ setsection }) {
           </li>
         </ul>
       </aside>
-    </>
+    </div>
   );
 }
