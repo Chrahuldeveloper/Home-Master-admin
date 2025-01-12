@@ -26,7 +26,7 @@ export default function Enquire() {
 
   return (
     <>
-      <div className="w-[75vw] mx-auto">
+      <div className="w-[90vw] mx-auto">
         <div className="pt-12">
           <div className="overflow-x-auto">
             <table className="mx-auto border border-gray-300">

@@ -8,7 +8,7 @@ import { RxCross2 } from "react-icons/rx";
 export default function SideBar({ setsection, settoggle }) {
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md">
-      <aside className="fixed top-0 left-0 w-[15vw] h-screen border-r-[1px] border-gray-300 bg-white">
+      <aside className="fixed top-0 left-0 w-[70vw] md:w-[50vw] lg:w-[15vw] h-screen border-r-[1px] border-gray-300 bg-white">
         <div className="flex justify-end px-5 pt-5">
           <RxCross2
             size={23}
@@ -24,6 +24,7 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Orders");
+               settoggle(false);
             }}
           >
             <MdShoppingCartCheckout size={25} />
@@ -33,6 +34,7 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Enquires");
+               settoggle(false);
             }}
           >
             <MdCall size={25} />
@@ -42,6 +44,7 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Edit");
+               settoggle(false);
             }}
           >
             <BiEditAlt size={25} />
