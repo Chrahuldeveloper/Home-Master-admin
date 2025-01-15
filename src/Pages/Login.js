@@ -1,20 +1,40 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../Firebase";
 
 export default function Login() {
-  const [user, setuser] = useState({
+  const [user, setUser] = useState({
     Name: "",
     Password: "",
   });
-
   const navigate = useNavigate();
 
-  const Login = () => {
-    if (user.Name === "admin" && user.Password === "12345") {
-      alert("Login Successful");
-      navigate("/home");
-    } else {
-      alert("Wrong Password. Try Again!!");
+  const Login = async () => {
+    try {
+      const userDocRef = doc(db, "ADMIN", "H7RMEkwCUDhuU1mbFf55");
+      const docSnapshot = await getDoc(userDocRef);
+
+      if (docSnapshot.exists()) {
+        const storedUser = docSnapshot.data();
+
+        console.log(storedUser);
+
+        if (
+          user.Name.toString() === storedUser.Name &&
+          user.Password.toString() === storedUser.Pass
+        ) {
+          alert("Login Successful");
+          navigate("/home");
+        } else {
+          alert("Wrong Username or Password. Try Again!");
+        }
+      } else {
+        alert("No such user exists!");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("Something went wrong! Please try again.");
     }
   };
 
@@ -40,7 +60,7 @@ export default function Login() {
                 id="Username"
                 value={user.Name}
                 onChange={(e) => {
-                  setuser({ ...user, Name: e.target.value });
+                  setUser({ ...user, Name: e.target.value });
                 }}
                 className="p-3 text-black rounded-lg outline-none"
               />
@@ -53,7 +73,7 @@ export default function Login() {
                 id="Password"
                 value={user.Password}
                 onChange={(e) => {
-                  setuser({ ...user, Password: e.target.value });
+                  setUser({ ...user, Password: e.target.value });
                 }}
                 className="p-3 text-black rounded-lg outline-none"
               />
