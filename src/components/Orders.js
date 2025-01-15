@@ -32,6 +32,7 @@ export default function Orders() {
               <tr>
                 {/* <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
                   Name
+                  
                 </th>
                 <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
                   Phone
@@ -83,7 +84,7 @@ export default function Orders() {
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
                     {order.price}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px] w-80">
+                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px] w-96 lg:w-80">
                     {order.UserAddress}
                   </td>
                   <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
