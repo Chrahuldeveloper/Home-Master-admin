@@ -17,9 +17,7 @@ export default function Login() {
 
       if (docSnapshot.exists()) {
         const storedUser = docSnapshot.data();
-
         console.log(storedUser);
-
         if (
           user.Name.toString() === storedUser.Name &&
           user.Password.toString() === storedUser.Pass
@@ -41,7 +39,7 @@ export default function Login() {
   return (
     <>
       <div className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-        <div className="bg-[#0b2a97] p-8 rounded-lg w-[80vw] sm:w-[60vw] md:w-[50vw] lg:w-[30vw]">
+        <div className="bg-[#0b2a97] p-8 rounded-lg w-[90vw] sm:w-[60vw] md:w-[50vw] lg:w-[30vw]">
           <div className="text-center space-y-3.5">
             <img
               src="https://homemaster.in/upload/logo/images_(2).jpg"

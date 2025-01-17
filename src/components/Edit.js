@@ -48,7 +48,7 @@ export default function Edit() {
   }, [userDetails]);
 
   return (
-    <div className="w-[30vw] mx-auto p-5 rounded-lg border-[1px] border-gray-300 m-5 h-[55vh] mt-10">
+    <div className="w-[90vw] md:w-[70vw] lg:w-[50vw] xl:w-[30vw] mx-auto p-5 rounded-lg border-[1px] border-gray-300 m-5 h-[55vh] mt-10">
       <div>
         <h1 className="text-lg font-semibold text-center">
           Update Your Login Details

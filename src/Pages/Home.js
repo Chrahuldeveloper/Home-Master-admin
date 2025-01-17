@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <div className="border-b-[1px] p-1 border-gray-300">
-        <div className="flex items-center justify-between px-10">
+        <div className="flex items-center justify-between px-5 md:px-8 lg:px-10">
           <img
             className="object-contain h-20 w-28"
             src="https://homemaster.in/upload/logo/images_(2).jpg"
