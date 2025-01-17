@@ -25,6 +25,7 @@ export default function Home() {
             onClick={() => {
               settoggle(true);
             }}
+            className="cursor-pointer"
           />
         </div>
       </div>

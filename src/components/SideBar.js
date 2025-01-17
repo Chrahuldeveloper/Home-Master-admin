@@ -4,7 +4,7 @@ import { MdCall } from "react-icons/md";
 import { BiEditAlt } from "react-icons/bi";
 import { MdLogout } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
-
+import { Link } from "react-router-dom";
 export default function SideBar({ setsection, settoggle }) {
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-md">
@@ -24,7 +24,7 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Orders");
-               settoggle(false);
+              settoggle(false);
             }}
           >
             <MdShoppingCartCheckout size={25} />
@@ -34,7 +34,7 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Enquires");
-               settoggle(false);
+              settoggle(false);
             }}
           >
             <MdCall size={25} />
@@ -44,15 +44,20 @@ export default function SideBar({ setsection, settoggle }) {
             className="flex items-center space-x-5 text-sm cursor-pointer"
             onClick={() => {
               setsection("Edit");
-               settoggle(false);
+              settoggle(false);
             }}
           >
             <BiEditAlt size={25} />
             <h1 className="font-semibold">Edit Details</h1>
           </li>
-          <li className="flex items-center space-x-5 text-sm cursor-pointer">
-            <MdLogout size={25} />
-            <h1 className="font-semibold">Logout</h1>
+          <li>
+            <Link
+              className="flex items-center space-x-5 text-sm cursor-pointer"
+              to="/"
+            >
+              <MdLogout size={25} />
+              <h1 className="font-semibold">Logout</h1>
+            </Link>
           </li>
         </ul>
       </aside>
