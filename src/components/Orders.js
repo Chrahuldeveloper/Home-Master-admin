@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import AllOrders from "../utlis/Orders";
+
 export default function Orders() {
   const [data, setData] = useState([]);
 
@@ -26,82 +27,63 @@ export default function Orders() {
   return (
     <div className="w-[95vw] mx-auto">
       <div className="pt-12">
-        <div className="overflow-x-auto">
-          <table className="mx-auto border border-gray-300 ">
+        {/* Add overflow-auto to make the table scrollable */}
+        <div className="overflow-auto">
+          <table className="min-w-full border border-gray-300 rounded-lg shadow-md">
             <thead className="bg-gray-100 border-b border-gray-300">
               <tr>
-                {/* <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  Name
-                  
-                </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
-                  Phone
-                </th> */}
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Email
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Service
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Date
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Amount
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm min-w-[200px] max-w-[300px] whitespace-normal break-words">
                   Location
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Latitude
                 </th>
-                <th className="px-10 py-2.5 text-xs cursor-pointer lg:text-sm">
+                <th className="px-6 py-4 text-xs font-semibold text-left text-gray-600 sm:text-sm">
                   Longitude
                 </th>
               </tr>
             </thead>
-            <tbody className="border-b border-gray-300">
+            <tbody>
               {data.map((order, index) => (
                 <tr
                   key={index}
-                  className="border-t border-gray-200 cursor-pointer hover:bg-gray-50"
+                  className={`${
+                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                  } hover:bg-gray-100`}
                 >
-                  {/* <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.customerName}
-                  </td> */}
-                  {/* <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
-                    {order.phone}
-                  </td> */}
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm ">
                     {order.UserEmail}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm min-w-[200px] max-w-[300px] whitespace-normal break-words">
                     {order.serviceName}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm min-w-[200px] max-w-[300px] whitespace-normal break-words">
                     {order.timestamp}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm">
                     {order.price}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px] w-96 lg:w-80">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm min-w-[200px] max-w-[300px] whitespace-normal break-words">
                     {order.UserAddress}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm">
                     {order.UserLat}
                   </td>
-                  <td className="px-10 py-5 text-xs font-semibold lg:text-[11px]">
+                  <td className="px-6 py-4 text-xs text-gray-700 sm:text-sm">
                     {order.UserLong}
                   </td>
-                  {/* <td
-                    className={`px-10 py-5 text-xs font-semibold lg:text-sm ${
-                      order.status === "Pending"
-                        ? "text-red-500"
-                        : "text-green-500"
-                    }`}
-                  >
-                    {order.status}
-                  </td> */}
                 </tr>
               ))}
             </tbody>
